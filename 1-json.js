@@ -1,3 +1,5 @@
+//  this script takes a javascript object an parses it to json then back to a js object, and then logs it to a console.
+
 const log = console.log;
 const book = { 
     title: "This is a book title",
