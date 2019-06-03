@@ -1,19 +1,34 @@
-//  this script takes a javascript object an parses it to json then back to a js object, and then logs it to a console.
-
+// creates a file if it doesn't exists, logs it a data stream, and then logs it in human readable format
+const fs = require('fs');
+const chalk = require('chalk')
 const log = console.log;
-const book = { 
-    title: "This is a book title",
-    author: "Kool Kat"
-}
+const path = './1-json.json';
 
-//  the method called creates a json object from a Javascript object
+const book = {
+    title: 'Nodejs the right way',
+    author: 'Node ninja'
+};
+
 const jsonBook = JSON.stringify(book);
 
-//  Creates a Javascript object from json
-const parsedBook = JSON.parse(jsonBook);
+// check to see if file exist if not create it 
+function createFile(path) {
+    if(!fs.existsSync(path)){
+        log('creating file to :::', path);
+        return fs.writeFileSync('./1-json.json', jsonBook);
+    } 
+    else log('The file already exists');
+};
 
-log("this is json " , typeof(jsonBook), jsonBook);
-log('=====================');
-log('This converts json to a Javascript Object:: ', typeof(parsedBook), parsedBook )
+// create and logs binary stream of data from file and then logs data in human readable format
+function outPutBuffer(path){
+    const dataBuffer = fs.readFileSync(path);
+    const readable = dataBuffer.toString();
+    log(chalk.red(dataBuffer));
+    log('===============')
+    log(chalk.green(readable))
+}
 
+createFile(path);
+outPutBuffer(path);
 
