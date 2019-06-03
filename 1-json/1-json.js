@@ -9,9 +9,10 @@ const book = {
 //  the method called creates a json object from a Javascript object
 const jsonBook = JSON.stringify(book);
 
+//  Creates a Javascript object from json
 const parsedBook = JSON.parse(jsonBook);
 
-log("this is json " , jsonBook);
+log("this is json " , typeof(jsonBook), jsonBook);
 log('=====================');
 log('This converts json to a Javascript Object:: ', typeof(parsedBook), parsedBook )
 
