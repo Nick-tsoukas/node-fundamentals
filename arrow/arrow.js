@@ -1,5 +1,5 @@
 // returns a collection of tasks that need to be done
-// using arrow function to bind the this keyword 
+// using arrow function to bind the this keyword
 const tasks = {
   tasks: [
     {
@@ -16,10 +16,10 @@ const tasks = {
     }
   ],
   todo() {
-    const taskToDo = this.tasks.filter( (t) => {
+    return this.tasks.filter( (t) => {
       return t.completed === false;
     });
-    console.log(taskToDo);
+
   }
 }
 
